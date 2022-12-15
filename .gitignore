@@ -3,5 +3,6 @@
 .RData
 .RDataTmp
 .Ruserdata
+.bak
 
 test_scripts_for_Olav/
