@@ -742,7 +742,7 @@ plot_cost_function_values_distribution <- function(result_list = NULL,
 #' @param result_list Result list obtained from \code{perform_mc_pls_tp()}.
 #' @param tp_value_to_plot Target projection value: "wTP", "tTP", "pTP", "selectivity_ratio" to "sr3", MCorrC (multivariate correlation coefficient) and unstandardized MCorrC . See examples for details.
 #' @param component Component number used for PLS regression and subsequent Target Projection.
-#' @param confidence_limits Confidence limits. Default 5\% and 95\% (-> c(.05, .95)).
+#' @param confidence_limits Confidence limits. Default 2.5\% and 97.5\% (-> c(.025, .975)).
 #' @param y_filter Minimum and Maximum filter for values. Either single value or vector c(lower, higher).
 #' @param x_filter Filter for variables / features.
 #' @param rel_font_size Relative font size based on default font size 11 (default 1).
@@ -758,7 +758,7 @@ plot_cost_function_values_distribution <- function(result_list = NULL,
 plot_tp_value_mc <- function(result_list = NULL,
                              tp_value_to_plot = "selectivity_ratio",
                              component = NULL,
-                             confidence_limits = c(.05, .95),
+                             confidence_limits = c(.025, .975),
                              x_filter = NULL,
                              y_filter = NULL,
                              rel_font_size = 1,
