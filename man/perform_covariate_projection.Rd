@@ -2,7 +2,7 @@
 % Please edit documentation in R/covariate_projection.R
 \name{perform_covariate_projection}
 \alias{perform_covariate_projection}
-\title{Remove covariate influence from multivariate data}
+\title{Handle covariate influence from multivariate data}
 \usage{
 perform_covariate_projection(
   X_aug = NULL,

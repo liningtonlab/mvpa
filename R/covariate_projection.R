@@ -3,7 +3,7 @@
 # # the covariates
 
 
-#' Remove covariate influence from multivariate data
+#' Handle covariate influence from multivariate data
 #'
 #' More detailed description
 #'

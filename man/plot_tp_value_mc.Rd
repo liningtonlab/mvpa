@@ -8,7 +8,7 @@ plot_tp_value_mc(
   result_list = NULL,
   tp_value_to_plot = "selectivity_ratio",
   component = NULL,
-  confidence_limits = c(0.05, 0.95),
+  confidence_limits = c(0.025, 0.975),
   x_filter = NULL,
   y_filter = NULL,
   rel_font_size = 1,
@@ -22,7 +22,7 @@ plot_tp_value_mc(
 
 \item{component}{Component number used for PLS regression and subsequent Target Projection.}
 
-\item{confidence_limits}{Confidence limits. Default 5\% and 95\% (-> c(.05, .95)).}
+\item{confidence_limits}{Confidence limits. Default 2.5\% and 97.5\% (-> c(.025, .975)).}
 
 \item{x_filter}{Filter for variables / features.}
 
