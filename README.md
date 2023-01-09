@@ -90,3 +90,6 @@ plot_tp_value_mc(pls_r_result,
                component = 1,
                confidence_limits = c(0.05, 0.95))
 ```
+
+# Contact
+For feedback, questions or comments please contact [Roger G. Linington](mailto:rliningt@sfu.ca) or [Olav M. Kvalheim](mailto:olav.kvalheim@uib.no)
