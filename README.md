@@ -1,13 +1,10 @@
-
-<!-- README.md is generated from README.Rmd. Please edit that file -->
-
 # Multivariate pattern analysis - mvpa
 
 Build validated Projection to Latent Structures regression (PLS-R)
 models through Monte Carlo resampling. Identify important explanatory
 variables / features, using the Target Projection on the validated PLS-R
-model. Perform confounder projection to interpret the influence of
-potential confounders on a response value.
+model. Perform covariate projection to interpret the influence of
+potential covariates on a response value.
 
 An overview of included tools: - Principal component analysis -
 Univariate correlation - QQ-plot - Projection to latent structures
@@ -29,10 +26,14 @@ if (!require("devtools", quietly = TRUE)) {
 devtools::install_github("liningtonlab/mvpa")
 ```
 
-## Example
+## How to use the package
+Please look up the online documentation ([link](https://liningtonlab.github.io/mvpaShiny_documentation/publication/R_script/))
+that contains an annotated script of how the package might be used in a real-world example.
 
-Use a multivariate dataset, perform confounder projection in order to
-remove confounder influence and use the resulting dataframe for
+## Quick start
+
+Use a multivariate dataset, perform covariate projection in order to
+remove covariateinfluence and use the resulting dataframe for
 PLS-regression analysis and subsequent target projection.
 
 ``` r
