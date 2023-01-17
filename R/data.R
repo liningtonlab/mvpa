@@ -35,7 +35,7 @@
 #' and the average particle size of VLDL, LDL and HDL subclasses.
 #'
 #'
-#' References:
+#' References:\cr
 #' (1) Rajalahti, T.; Aadland, E.; Resaland, G.K.; Anderssen, S.A.; Kvalheim, O.M.\cr
 #' Influence of adiposity and physical activity on the cardiometabolic association\cr
 #' pattern of lipoprotein subclasses to aerobic fitness in prepubertal children.\cr
