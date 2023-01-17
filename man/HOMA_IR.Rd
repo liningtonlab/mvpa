@@ -71,14 +71,14 @@ A data frame with 836 rows and 55 variables:
 HOMA_IR
 }
 \description{
-Lipoprotein and physical activity data of 836 children between age 10 and 12 (1)
+Lipoprotein and physical activity data of 836 children between age 10 and 12 (1, 2).
 }
 \details{
 Outcome - Homeostatic model assessment of insulin resistance (HOMA-IR)\cr
-HOMA-IR was calculated as fastening serum insulin times fasting serum glucose divided by 22.5 (2)
+HOMA-IR was calculated as fastening serum insulin times fasting serum glucose divided by 22.5 (3)
 
 Explanatory variables - Physical activity spectrum\cr
-Physical activity (PA) data was obtained using the ActiGraph GT3X+ accelerometer (3) worn at the waist over seven consecutive days,
+Physical activity (PA) data was obtained using the ActiGraph GT3X+ accelerometer (4) worn at the waist over seven consecutive days,
 except during water activities (swimming, showering) or while sleeping. We use a PA descriptor of 23 intervals covering the intensity spectrum of the vertical axis.
 The intervals used for the descriptor were 0–99, 100–249, 250–499, 500–999, 1000–1499, 1500–1999, 2000–2499, 2500–2999,
 3000–3499, 3500–3999, 4000–4499, 4500–4999, 5000–5499, 5500-5999, 6000–6499, 6500-6999, 7000–7499, 7500-7999, 8000-8499,
@@ -86,25 +86,46 @@ The intervals used for the descriptor were 0–99, 100–249, 250–499, 500–9
 
 Explanatory variables – Adiposity\cr
 We used three measures of adiposity: Body mass index (BMI), the ratio of waist circumference to height (WC_to_H), and skinfold thickness derived from measurement at
-four places (biceps, triceps, subscapular, and suprailiac.
+four places (biceps, triceps, subscapular, and suprailiac).
 
 Confounders - Age and Sex
 Age is measured as a variable. The subjects are all 5th graders so the age range is narrow . The cohort includes both boys and girls so sex is
 included as a binary variable; 0 for girls and 1 for boys, to be able to make one joint model incorporating both genders .
 
 Mediator - Lipoprotein features\cr
-Serum lipoprotein profiles were characterized by 26 measures: Concentrations of total cholesterol (TC), triglyceride (TG), chylomicrons (CM), very-low-density lipoproteins (VLDL),
-low-density lipoproteins (LDL), high-density lipoproteins (HDL), two subclasses of CM (CM-1 and CM-2), five subclasses of VLDL (VLDL-L1, VLDL-L2, VLDL-L3, VLDL-M,
-VLDL-S), four subclasses of LDL (LDL-L, LDL-M, LDL-S, LDL-VS), six subclasses of HDL (HDL-VL1, HDL-VL2, HDL-L, HDL-M, HDL-S and HDL-VS), and the average particle size of VLDL, LDL
-and HDL subclasses.
+Serum lipoprotein profiles were characterized by 26 measures:
+Concentrations of total cholesterol (TC),\cr
+triglyceride (TG),\cr
+chylomicrons (CM),\cr
+very-low-density lipoproteins (VLDL),\cr
+low-density lipoproteins (LDL),\cr
+high-density lipoproteins (HDL),\cr
+two subclasses of CM (CM-1 and CM-2),\cr
+five subclasses of VLDL (VLDL-L1, VLDL-L2, VLDL-L3, VLDL-M, VLDL-S),\cr
+four subclasses of LDL (LDL-L, LDL-M, LDL-S, LDL-VS),\cr
+six subclasses of HDL (HDL-VL1, HDL-VL2, HDL-L, HDL-M, HDL-S and HDL-VS),\cr
+and the average particle size of VLDL, LDL and HDL subclasses.
 
-(1) Rajalahti, Tarja; Aadland, Eivind; Resaland, Geir K.; Anderssen, Sigmund A.; Kvalheim, Olav M.\cr
+
+References:
+(1) Rajalahti, T.; Aadland, E.; Resaland, G.K.; Anderssen, S.A.; Kvalheim, O.M.\cr
 Influence of adiposity and physical activity on the cardiometabolic association\cr
 pattern of lipoprotein subclasses to aerobic fitness in prepubertal children.\cr
 PLOS ONE, Vol. 16, No. 11, 2021, e0259901.
 
+(2) Resaland G.K., Fusche Moe V., Aadland E., Steene-Johannessen J., Glosvik Ø.,\cr
+Andersen J. R. et al. on behalf of the ASK study group.\cr
+Active Smarter Kids (ASK): Rationale and design of a cluster-randomized controlled trial\cr
+investigating the effects of daily physical activity on children’s academic performance and risk factors\cr
+for non-communicable diseases.\cr
+BMC Public Health, Vol. 15, 2015, 709.
 
-(2) John, Dinesh; Freedson Patty.\cr
+(3) Matthews D.R., Hosker J.R., Rudenski A.S., Naylor B.A., Treacher D.F., Turner R.C.\cr
+Homeostasis model assessment: insulin resistance and beta-cell function from fasting\cr
+plasma glucose and insulin concentrations in man.\cr
+Diabetologia, Vol. 28,  1985, 412-419.
+
+(4) John, D.; Freedson P.\cr
 Actigraph and Actical physical activity monitors:A peek under the hood.\cr
 Medicine & Science in Sports & Exercise. Vol. 44, Issue 1S, 2012, S86–S89.
 }

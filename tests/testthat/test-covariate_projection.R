@@ -1,16 +1,37 @@
 test_that("covariate projection - no standardization", {
     expect_snapshot(
         perform_covariate_projection(X_aug = mtcars,
-                                      standardize = FALSE,
-                                      covariates = c("hp", "mpg"))
+                                     reorder_by_covariates = TRUE,
+                                     standardize = FALSE,
+                                     covariates = c("hp", "mpg"))
         )
 })
 
-test_that("covariate projection - no standardization", {
+test_that("covariate projection - standardization", {
     expect_snapshot(
         perform_covariate_projection(X_aug = mtcars,
-                                      standardize = TRUE,
-                                      covariates = c("hp", "mpg"))
+                                     reorder_by_covariates = TRUE,
+                                     standardize = TRUE,
+                                     covariates = c("hp", "mpg"))
+    )
+})
+
+
+test_that("covariate projection - no reorder", {
+    expect_snapshot(
+        perform_covariate_projection(X_aug = mtcars,
+                                     reorder_by_covariates = FALSE,
+                                     standardize = TRUE,
+                                     covariates = c("hp", "mpg"))
+    )
+})
+
+test_that("covariate projection - standardization", {
+    expect_snapshot(
+        perform_covariate_projection(X_aug = mtcars,
+                                     reorder_by_covariates = TRUE,
+                                     standardize = TRUE,
+                                     covariates = c("hp", "mpg"))
     )
 })
 
