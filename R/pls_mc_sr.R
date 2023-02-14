@@ -590,7 +590,7 @@ plot_cost_function <- function(result_list = NULL,
     )
 
     x_axis_options <- list(
-        title = "Component",
+        title = "Number of components in model",
         ticktext = seq(length(med_cl$median)) - 1,
         tickvals = seq(length(med_cl$median))
     )
