@@ -354,7 +354,7 @@ perform_mc_pls_tp <- function(data = NULL,
 
                 # Predict y_hat using the PLS model and account for the
                 # y_calibration offset, using the median and calculate the RMSEP
-                y_hat <- stats::median(data_list$y_cal) + X_val %*% pls_model$b
+                y_hat <- mean(data_list$y_cal) + X_val %*% pls_model$b
                 cost_func_val <- cost_function(data_list$y_val, y_hat, type = cost_function_type)
 
                 # Add selectivity ratios and target projection values to mc_list
