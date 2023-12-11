@@ -184,6 +184,7 @@ plot_variable_variation_pca <- function(pca_result = NULL,
                        legend = legend_options)
 
     fig
+
 }
 
 
@@ -270,6 +271,7 @@ plot_scree_plot <- function(pca_result,
                        font = text_options)
 
     fig
+
 }
 
 
@@ -346,4 +348,125 @@ plot_pca_2d <- function(pca_result,
                           font = text_options)
 
     fig
+
+}
+
+
+#' Plot absolute scores or loadings of a specific principal component in form of a bar plot.
+#'
+#' @param pca_result PCA result obtained from perform_pca() method.
+#' @param plot Either "loadings" or "scores" (default).
+#' @param PC_to_plot Principal component (PC) to plot (default 1).
+#' @param y_filter Minimum and Maximum filter for values. Either single value or vector c(lower, higher).
+#' @param x_filter Filter for objects / variables.
+#' @param rel_font_size Relative font size (default 1, font size 11).
+#' @param rotate Rotate plot by 90 degrees to read axis labels more easily.
+#'
+#' @importFrom rlang .data
+#' @return Bar plot with desired Principal Component Analysis scores or loading values.
+#' @export
+#'
+#' @examples
+#'
+#' pca <- perform_pca(HOMA_IR)
+#'
+#' plot_pca_value(pca, "scores", 2)
+plot_pca_value <- function(pca_result = NULL,
+                           plot = "scores",
+                           PC_to_plot = 1,
+                           y_filter = NULL,
+                           x_filter = NULL,
+                           rel_font_size = 1,
+                           rotate = FALSE) {
+
+    if (is.null(pca_result)) stop("Please provide pca_result")
+
+    PC = paste0("PC", PC_to_plot)
+
+    if (plot == "scores") {
+        values <- as.data.frame(pca_result$scores[,PC])
+        print(values)
+    } else  if (plot== "loadings") {
+        values <- as.data.frame(pca_result$loadings[,PC])
+    } else {
+        stop("plot can only be 'scores' or 'loadings'")
+    }
+
+    name <- ifelse(plot == "scores", "Score value", "Loading value")
+
+    names(values) <- name
+
+    # "feature" means both here, variable or object, depending on scores or loadings
+    values <- tibble::rownames_to_column(values, "feature")
+
+    values$feature <- factor(values$feature, levels=values$feature)
+
+    # Optional  variable / feature filtering (string or vector of strings to keep)
+    if (!is.null(x_filter)){
+        values <- dplyr::filter(values, .data$feature %in% x_filter)
+        values <- droplevels(values)
+    }
+
+    # y filter is tuple, format c(start, end)
+    if (!is.null(y_filter)){
+        if (length(y_filter) == 1) {
+            values <- dplyr::filter(values, abs(.data[[name]]) >= y_filter) %>%
+                      droplevels()
+        } else {
+            values <- dplyr::filter(values, (abs(.data[[name]]) >= y_filter[1] & abs(.data[[name]]) <= y_filter[2])) %>%
+                      droplevels()
+        }
+    }
+
+    # Plotting
+    if (rotate) {
+        # Reverse factor order, so that left to right reads like top to bottom when rotated.
+        values$feature <- forcats::fct_rev(values$feature)
+        fig <- plotly::plot_ly(data = values, x = ~.data[[name]], y = ~.data$feature, type = "bar",
+                               color = I("#41b6c4"),
+                               hoverinfo = "text",
+                               hovertext = ~paste0("<b>", name, ": </b>",
+                                                   round(.data[[name]], 2))
+                              )
+
+    } else {
+        fig <- plotly::plot_ly(data = values, x = ~.data$feature, y = ~.data[[name]], type = "bar",
+                               color = I("#41b6c4"),
+                               hoverinfo = "text",
+                               hovertext = ~paste0("<b>", name, ": </b>",
+                                                   round(.data[[name]], 2))
+                               )
+    }
+
+    # Modify labels and remove legend
+    obj_feat_label <- ifelse(plot == "scores",
+                             paste0("Object (", PC, ")"),
+                             paste0("Variable (", PC, ")"))
+
+    # plotly options
+    text_options <- list(
+        # family = "Courier New",
+        size = 11 * rel_font_size
+    )
+
+    x_axis_options <- list(
+        title = list(text = ifelse(rotate, name, obj_feat_label),
+                     standoff  = 20L),
+        tickangle = ifelse(rotate, 0, 270)
+    )
+
+    y_axis_options <- list(
+        title = list(text = ifelse(!rotate, name, obj_feat_label),
+                     standoff  = 20L)
+    )
+
+    fig <- fig %>%
+           plotly::hide_legend() %>%
+           plotly::layout(xaxis = x_axis_options,
+                          yaxis = y_axis_options,
+                          font = text_options
+                          )
+
+    fig
+
 }
