@@ -77,7 +77,7 @@ perform_covariate_projection <- function(X_aug = NULL,
     if (reorder_by_covariates) {
         column_names <- colnames(X_aug)
         new_order <- column_names[!column_names %in% covariates]
-        new_order <- append(new_order, covariates, after = 1)
+        new_order <- c(covariates, new_order)
 
         X_aug <- X_aug[new_order]
         covariate_var_df <- covariate_var_df[new_order]
