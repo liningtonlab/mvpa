@@ -167,16 +167,6 @@
 
     Code
       introduce_offset(data = dataset, new_min = 5, col_names = c("a"))
-    Warning <lifecycle_warning_deprecated>
-      Using an external vector in selections was deprecated in tidyselect 1.1.0.
-      i Please use `all_of()` or `any_of()` instead.
-        # Was:
-        data %>% select(col_names)
-      
-        # Now:
-        data %>% select(all_of(col_names))
-      
-      See <https://tidyselect.r-lib.org/reference/faq-external-vector.html>.
     Output
          a b c
       1  8 0 1
@@ -188,16 +178,6 @@
     Code
       scale_data(data = dataset, col_names = c("b", "c"), method = "sqrt",
       n_for_root = 3)
-    Warning <lifecycle_warning_deprecated>
-      Using an external vector in selections was deprecated in tidyselect 1.1.0.
-      i Please use `all_of()` or `any_of()` instead.
-        # Was:
-        data %>% select(col_names)
-      
-        # Now:
-        data %>% select(all_of(col_names))
-      
-      See <https://tidyselect.r-lib.org/reference/faq-external-vector.html>.
     Output
          a        b        c
       1  0 0.000000 1.000000
@@ -209,16 +189,6 @@
     Code
       scale_data(data = dataset, col_names = c("b", "c"), method = "nth_root",
       n_for_root = 3)
-    Warning <lifecycle_warning_deprecated>
-      Using an external vector in selections was deprecated in tidyselect 1.1.0.
-      i Please use `all_of()` or `any_of()` instead.
-        # Was:
-        data %>% select(col_names)
-      
-        # Now:
-        data %>% select(all_of(col_names))
-      
-      See <https://tidyselect.r-lib.org/reference/faq-external-vector.html>.
     Output
          a       b        c
       1  0 0.00000 1.000000
@@ -230,16 +200,6 @@
     Code
       scale_data(data = dataset, col_names = c("b", "c"), method = "normalize_to_max",
       n_for_root = 3)
-    Warning <lifecycle_warning_deprecated>
-      Using an external vector in selections was deprecated in tidyselect 1.1.0.
-      i Please use `all_of()` or `any_of()` instead.
-        # Was:
-        data %>% select(col_names)
-      
-        # Now:
-        data %>% select(all_of(col_names))
-      
-      See <https://tidyselect.r-lib.org/reference/faq-external-vector.html>.
     Output
          a         b         c
       1  0 0.0000000 0.3333333
@@ -251,16 +211,6 @@
     Code
       scale_data(data = dataset, col_names = c("b", "c"), method = "min_max",
       n_for_root = 3)
-    Warning <lifecycle_warning_deprecated>
-      Using an external vector in selections was deprecated in tidyselect 1.1.0.
-      i Please use `all_of()` or `any_of()` instead.
-        # Was:
-        data %>% select(col_names)
-      
-        # Now:
-        data %>% select(all_of(col_names))
-      
-      See <https://tidyselect.r-lib.org/reference/faq-external-vector.html>.
     Output
          a         b   c
       1  0 0.0000000 0.0

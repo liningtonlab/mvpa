@@ -688,7 +688,7 @@ introduce_offset <- function(data = NULL,
 
     if (!is.null(col_names)){
         data_orig <- data
-        data <- data %>% dplyr::select(col_names)
+        data <- data %>% dplyr::select(dplyr::all_of(col_names))
     }
 
     # If no new_value is chosen, offset will be chosen so that new min is 1
@@ -739,7 +739,7 @@ scale_data <- function(data = NULL,
 
     if (!is.null(col_names)) {
         data_orig <- data
-        data <- data %>% dplyr::select(col_names)
+        data <- data %>% dplyr::select(dplyr::all_of(col_names))
     }
 
     if (method == "sd") {
