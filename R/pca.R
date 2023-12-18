@@ -385,7 +385,6 @@ plot_pca_value <- function(pca_result = NULL,
 
     if (plot == "scores") {
         values <- as.data.frame(pca_result$scores[,PC])
-        print(values)
     } else  if (plot== "loadings") {
         values <- as.data.frame(pca_result$loadings[,PC])
     } else {
