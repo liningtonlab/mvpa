@@ -18,7 +18,7 @@ plot_tp_value_mc(
 \arguments{
 \item{result_list}{Result list obtained from \code{perform_mc_pls_tp()}.}
 
-\item{tp_value_to_plot}{Target projection value: "wTP", "tTP", "pTP", "selectivity_ratio" to "sr3", MCorrC (multivariate correlation coefficient) and unstandardized MCorrC . See examples for details.}
+\item{tp_value_to_plot}{Target projection value: "wTP", "tTP", "pTP", "selectivity_ratio", "selectivity_fraction", "MCorrC" (multivariate correlation coefficient) and "MCovC" (multivariate covariance coefficient). See examples for details.}
 
 \item{component}{Component number used for PLS regression and subsequent Target Projection.}
 

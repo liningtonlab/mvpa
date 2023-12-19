@@ -34,11 +34,11 @@ List that contains the following values:
 \item{Etp}{Target projection residual matrix}
 \item{explained_variance}{Explained variance - derived from \code{tTP} and \code{pTP}}
 \item{residual_variance}{Residual variance - derived from \code{Etp}}
-\item{explained_variance_tTP}{Variance explained by the target score tTP - derived from \eqn{\frac{explained\:variance}{(exaplained\:variance\:+\:residual\:variance)}}}
-\item{selectivity_ratio}{Selectivity ratio (SR) - \eqn{\frac{explained\:variance}{residual\:variance}}}
-\item{selectivity_fraction}{Selectivity fraction (SF) - \eqn{\frac{explained\:variance}{var(X)}}}
-\item{MCorrC}{Multivariate correlation coefficient - MCorrC - \eqn{\frac{pTP}{|pTP|} * \sqrt{|SF\:R2|}}}
-\item{MCovC}{Multivariate covariance coefficient - MCovC - \eqn{MCorrC\:\frac{sd(y)}{sd(X)}}}
+\item{explained_variance_tTP}{Variance explained by the target score tTP = \eqn{\frac{explained\:variance}{(exaplained\:variance\:+\:residual\:variance)}}}
+\item{selectivity_ratio}{Selectivity ratio (SR) = \eqn{\frac{explained\:variance}{residual\:variance}}}
+\item{selectivity_fraction}{Selectivity fraction (SF) = \eqn{\frac{explained\:variance}{var(X)}}}
+\item{MCorrC}{Multivariate correlation coefficient - MCorrC = \eqn{\frac{pTP}{|pTP|} * \sqrt{|SF\:R2|}}}
+\item{MCovC}{Multivariate covariance coefficient - MCovC = \eqn{\frac{MCorrC}{sd(X)}}}
 }
 \description{
 This function calculates all target projection values, including all selectivity ratios and derivatives.

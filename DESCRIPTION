@@ -1,7 +1,7 @@
 Type: Package
 Package: mvpa
 Title: Multivariate pattern analysis in R
-Version: 0.2.0
+Version: 0.2.1
 Authors@R: 
     c(person(given = "Baumeister",
              family = "Tim",

@@ -78,11 +78,11 @@ explained_X_var = function(X, pls_model, verbose = FALSE){
 #' \item{Etp}{Target projection residual matrix}
 #' \item{explained_variance}{Explained variance - derived from \code{tTP} and \code{pTP}}
 #' \item{residual_variance}{Residual variance - derived from \code{Etp}}
-#' \item{explained_variance_tTP}{Variance explained by the target score tTP - derived from \eqn{\frac{explained\:variance}{(exaplained\:variance\:+\:residual\:variance)}}}
-#' \item{selectivity_ratio}{Selectivity ratio (SR) - \eqn{\frac{explained\:variance}{residual\:variance}}}
-#' \item{selectivity_fraction}{Selectivity fraction (SF) - \eqn{\frac{explained\:variance}{var(X)}}}
-#' \item{MCorrC}{Multivariate correlation coefficient - MCorrC - \eqn{\frac{pTP}{|pTP|} * \sqrt{|SF\:R2|}}}
-#' \item{MCovC}{Multivariate covariance coefficient - MCovC - \eqn{MCorrC\:\frac{sd(y)}{sd(X)}}}
+#' \item{explained_variance_tTP}{Variance explained by the target score tTP = \eqn{\frac{explained\:variance}{(exaplained\:variance\:+\:residual\:variance)}}}
+#' \item{selectivity_ratio}{Selectivity ratio (SR) = \eqn{\frac{explained\:variance}{residual\:variance}}}
+#' \item{selectivity_fraction}{Selectivity fraction (SF) = \eqn{\frac{explained\:variance}{var(X)}}}
+#' \item{MCorrC}{Multivariate correlation coefficient - MCorrC = \eqn{\frac{pTP}{|pTP|} * \sqrt{|SF\:R2|}}}
+#' \item{MCovC}{Multivariate covariance coefficient - MCovC = \eqn{\frac{MCorrC}{sd(X)}}}
 #' @export
 #'
 #' @examples
@@ -141,9 +141,8 @@ target_projection <- function(X = NULL,
     MCorrC <- sqrt(abs(SR3)) * sign
 
     # Calculate multivariate covariance coefficient (MCovC) by division
-    # of the standard deviation of the X predictors and multiply it with the standard
-    # deviation of the response y
-    MCovC <- MCorrC / X_sd * y_sd
+    # of the standard deviation of the X predictors
+    MCovC <- MCorrC / X_sd
 
     # Substitute NaN SRs with 0 values.
     # This happens when 0 division occurs.
@@ -740,7 +739,7 @@ plot_cost_function_values_distribution <- function(result_list = NULL,
 #' In addition, confidence limits are provided which are derived from the Monte Carlo resampling.
 #'
 #' @param result_list Result list obtained from \code{perform_mc_pls_tp()}.
-#' @param tp_value_to_plot Target projection value: "wTP", "tTP", "pTP", "selectivity_ratio" to "sr3", MCorrC (multivariate correlation coefficient) and unstandardized MCorrC . See examples for details.
+#' @param tp_value_to_plot Target projection value: "wTP", "tTP", "pTP", "selectivity_ratio", "selectivity_fraction", "MCorrC" (multivariate correlation coefficient) and "MCovC" (multivariate covariance coefficient). See examples for details.
 #' @param component Component number used for PLS regression and subsequent Target Projection.
 #' @param confidence_limits Confidence limits. Default 2.5\% and 97.5\% (-> c(.025, .975)).
 #' @param y_filter Minimum and Maximum filter for values. Either single value or vector c(lower, higher).
@@ -785,7 +784,7 @@ plot_tp_value_mc <- function(result_list = NULL,
                    "selectivity_ratio" = "Selectivity ratio",
                    "selectivity_fraction" = "Selectivity fraction",
                    "MCorrC" = "Multivariate correlation coefficient",
-                   "MCovC" = "Unstandardized multivariate correlation coefficient"
+                   "MCovC" = "Multivariate covariance coefficient"
     )
 
     med_cl <- median_cl(tp_vals, confidence_limits = confidence_limits)
@@ -883,7 +882,7 @@ plot_tp_value_mc <- function(result_list = NULL,
 #' multivariate correlation coefficients (MCorrC) and unstandardized multivariate correlation coefficients (MCovC)
 #'
 #' @param result_list Result list obtained from \code{perform_mc_pls_tp()}.
-#' @param tp_value_to_plot Target projection value: "wTP", "pTP", "selectivity_ratio" to "sr3", "MCorrC" (multivariate correlation coefficient) and "MCovC" (multivariate covariate coefficient).
+#' @param tp_value_to_plot Target projection value: "wTP", "tTP", "pTP", "selectivity_ratio", "selectivity_fraction", "MCorrC" (multivariate correlation coefficient) and "MCovC" (multivariate covariance coefficient). See examples for details.
 #' @param y_filter Minimum and Maximum filter for values. Either single value or vector c(lower, higher).
 #' @param x_filter Filter for variables / features.
 #' @param rel_font_size Relative font size based on default font size 11 (default 1).
@@ -922,7 +921,7 @@ plot_tp_value <- function(result_list = NULL,
                    "selectivity_ratio" = "Selectivity ratio",
                    "selectivity_fraction" = "Selectivity fraction",
                    "MCorrC" = "Multivariate correlation coefficient",
-                   "MCovC" = "Unstandardized multivariate correlation coefficient"
+                   "MCovC" = "Multivariate covariance coefficient"
     )
 
     names(values) <- name

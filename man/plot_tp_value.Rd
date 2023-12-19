@@ -16,7 +16,7 @@ plot_tp_value(
 \arguments{
 \item{result_list}{Result list obtained from \code{perform_mc_pls_tp()}.}
 
-\item{tp_value_to_plot}{Target projection value: "wTP", "pTP", "selectivity_ratio" to "sr3", "MCorrC" (multivariate correlation coefficient) and "MCovC" (multivariate covariate coefficient).}
+\item{tp_value_to_plot}{Target projection value: "wTP", "tTP", "pTP", "selectivity_ratio", "selectivity_fraction", "MCorrC" (multivariate correlation coefficient) and "MCovC" (multivariate covariance coefficient). See examples for details.}
 
 \item{y_filter}{Minimum and Maximum filter for values. Either single value or vector c(lower, higher).}
 
