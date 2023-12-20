@@ -82,7 +82,7 @@ explained_X_var = function(X, pls_model, verbose = FALSE){
 #' \item{selectivity_ratio}{Selectivity ratio (SR) = \eqn{\frac{explained\:variance}{residual\:variance}}}
 #' \item{selectivity_fraction}{Selectivity fraction (SF) = \eqn{\frac{explained\:variance}{var(X)}}}
 #' \item{MCorrC}{Multivariate correlation coefficient - MCorrC = \eqn{\frac{pTP}{|pTP|} * \sqrt{|SF\:R2|}}}
-#' \item{MCovC}{Multivariate covariance coefficient - MCovC = \eqn{\frac{MCorrC}{sd(X)}}}
+#' \item{MCovC}{Multivariate covariance coefficient - MCovC = \eqn{{MCorrC}\frac{sd(y)}{sd(X)}}}
 #' @export
 #'
 #' @examples
@@ -141,8 +141,9 @@ target_projection <- function(X = NULL,
     MCorrC <- sqrt(abs(SR3)) * sign
 
     # Calculate multivariate covariance coefficient (MCovC) by division
-    # of the standard deviation of the X predictors
-    MCovC <- MCorrC / X_sd
+    # of the standard deviation of the X predictors and multiply it with the standard
+    # deviation of the response y
+    MCovC <- MCorrC / X_sd * y_sd
 
     # Substitute NaN SRs with 0 values.
     # This happens when 0 division occurs.

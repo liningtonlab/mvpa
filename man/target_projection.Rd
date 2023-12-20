@@ -38,7 +38,7 @@ List that contains the following values:
 \item{selectivity_ratio}{Selectivity ratio (SR) = \eqn{\frac{explained\:variance}{residual\:variance}}}
 \item{selectivity_fraction}{Selectivity fraction (SF) = \eqn{\frac{explained\:variance}{var(X)}}}
 \item{MCorrC}{Multivariate correlation coefficient - MCorrC = \eqn{\frac{pTP}{|pTP|} * \sqrt{|SF\:R2|}}}
-\item{MCovC}{Multivariate covariance coefficient - MCovC = \eqn{\frac{MCorrC}{sd(X)}}}
+\item{MCovC}{Multivariate covariance coefficient - MCovC = \eqn{{MCorrC}\frac{sd(y)}{sd(X)}}}
 }
 \description{
 This function calculates all target projection values, including all selectivity ratios and derivatives.
